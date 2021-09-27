@@ -16,8 +16,14 @@ exports.handler = async (event, context) => {
             'Authorization': `Bearer ${process.env.ACCESS_TOKEN}`
         }
     });
-    if (response.data.data.length === 0) {
-        return { statusCode: 404, body: "They're awesome!"};
+
+    let userExists = response && response.data && response.data.data && response.data.data.length != 0;
+    if (!userExists) {
+        return { statusCode: 200, body: "They're awesome!"};
     }
-    return { statusCode: 200, body: response?.data?.data?.[0]?.description || "They're awesome!"};
+    let descriptionExists = response.data.data[0] && response.data.data[0].description;
+    if(!descriptionExists) {
+        return { statusCode: 200, body: "They're awesome!"};
+    }
+    return { statusCode: 200, body: response.data.data[0].description};
 };
