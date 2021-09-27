@@ -5,6 +5,8 @@
 
 const axios = require('axios');
 exports.handler = async (event, context) => {
+    console.log(event.queryStringParameters);
+    console.log(event.queryStringParameters.username);
     let username = event.queryStringParameters.username;
     username = username.replace('@', '');
     const url = `https://api.twitch.tv/helix/users?login=${username}`;
@@ -17,5 +19,5 @@ exports.handler = async (event, context) => {
     if (response.data.data.length === 0) {
         return { statusCode: 404, body: "They're awesome!"};
     }
-    return { statusCode: 404, body: response.data.data[0].description};
+    return { statusCode: 200, body: response.data.data[0].description};
 };
