@@ -15,7 +15,7 @@ exports.handler = async (event, context) => {
         }
     });
     if (response.data.data.length === 0) {
-        return "They're awesome!";
+        return { statusCode: 404, body: "They're awesome!"};
     }
-    return response.data.data[0].description;
+    return { statusCode: 404, body: response.data.data[0].description};
 };
