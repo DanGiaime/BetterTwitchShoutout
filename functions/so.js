@@ -19,5 +19,5 @@ exports.handler = async (event, context) => {
     if (response.data.data.length === 0) {
         return { statusCode: 404, body: "They're awesome!"};
     }
-    return { statusCode: 200, body: response.data.data[0].description};
+    return { statusCode: 200, body: response?.data?.data?.[0]?.description || "They're awesome!"};
 };
