@@ -39,7 +39,7 @@ exports.handler = async (event, context) => {
     } catch(error) {
         return {
             statusCode: 200,
-            body: "Either got a REALLY weird username, or you're using an old version of the @Roxkstar74 !so command. Please copy the updated command from this post: https://www.reddit.com/r/Twitch/comments/pwegd8/better_so_for_nightbot/"
+            body: "Either got a REALLY weird username, or you're using an old version of the @Roxkstar74 !so command. Please copy the updated command from this post: https://www.reddit.com/r/Twitch/comments/pwegd8/better_so_for_nightbot/ or come bug me at https://twitch.tv/rokstar74 and I'll fix it!"
         }
     }
 
